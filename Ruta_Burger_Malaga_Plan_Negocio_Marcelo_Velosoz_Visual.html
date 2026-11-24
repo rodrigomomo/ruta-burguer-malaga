@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruta Burger Málaga · Plan de Negocio y Propuesta de Alianza</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #090b10;
+      color: #e2e8f0;
+      line-height: 1.5;
+      padding: 20px 16px 48px;
+    }
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    header {
+      background: #111520;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 18px 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #f59e0b;
+      color: #090b10;
+      font-weight: 800;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #fbbf24;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 20px;
+      color: #ffffff;
+      font-weight: 700;
+    }
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .pill-amber {
+      background: rgba(245, 158, 11, 0.14);
+      color: #fcd34d;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+    .pill-green {
+      background: rgba(16, 185, 129, 0.14);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+    .card {
+      background: #111520;
+      border: 1px solid #1e293b;
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .kpi-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #94a3b8;
+      font-weight: 700;
+    }
+    .kpi-value {
+      font-size: 32px;
+      font-weight: 800;
+      margin: 6px 0 4px;
+    }
+    .kpi-sub {
+      font-size: 12px;
+      color: #cbd5e1;
+    }
+    .c-amber { color: #fbbf24; }
+    .c-green { color: #34d399; }
+    .c-sky { color: #38bdf8; }
+    .c-purple { color: #c084fc; }
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 2px;
+    }
+    .chart-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 0;
+    }
+    .legend-list {
+      width: 100%;
+      border-top: 1px solid #1e293b;
+      padding-top: 12px;
+      margin-top: 6px;
+      font-size: 12px;
+    }
+    .legend-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+    }
+    .btn-group {
+      display: inline-flex;
+      background: #090b10;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 3px;
+      gap: 3px;
+    }
+    .btn-mode {
+      border: none;
+      background: transparent;
+      color: #cbd5e1;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-mode.active {
+      background: #f59e0b;
+      color: #090b10;
+      font-weight: 700;
+    }
+    .card-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .role-card {
+      border-left: 4px solid #f59e0b;
+    }
+    .role-card.sky { border-left-color: #38bdf8; }
+    .role-card.green { border-left-color: #10b981; }
+    .role-badge {
+      font-size: 12px;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: rgba(245, 158, 11, 0.16);
+      color: #fcd34d;
+    }
+    .role-card.sky .role-badge {
+      background: rgba(56, 189, 248, 0.16);
+      color: #7dd3fc;
+    }
+    .role-card.green .role-badge {
+      background: rgba(16, 185, 129, 0.16);
+      color: #6ee7b7;
+    }
+    .role-bullets {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+    .role-bullets div { padding: 3px 0; }
+    .sim-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      background: #090b10;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 14px 0 18px;
+    }
+    .control-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+    input[type="range"] {
+      width: 100%;
+      accent-color: #f59e0b;
+      cursor: pointer;
+    }
+    .sim-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .res-box {
+      background: #090b10;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .res-box.highlight {
+      border-color: rgba(245, 158, 11, 0.5);
+    }
+    .res-val {
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .bar-track {
+      width: 100%;
+      height: 10px;
+      background: #1e293b;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+    .step-card {
+      border-top: 4px solid #f59e0b;
+    }
+    .step-card.sky { border-top-color: #38bdf8; }
+    .step-card.green { border-top-color: #10b981; }
+    .step-card h3 {
+      font-size: 16px;
+      color: #ffffff;
+      margin: 4px 0 6px;
+    }
+    .step-card p {
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+    footer {
+      background: #111520;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      border-radius: 16px;
+      padding: 18px 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .btn-print {
+      background: #f59e0b;
+      color: #090b10;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    @media print {
+      .btn-print, .btn-group { display: none; }
+      body { background: #ffffff; color: #0f172a; }
+      .card, header, footer, .res-box, .sim-controls {
+        background: #ffffff;
+        color: #0f172a;
+        border-color: #cbd5e1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">RB</div>
+        <div>
+          <div class="eyebrow">Resumen Ejecutivo · Plan de Negocio y Sociedad</div>
+          <h1>Ruta Burger Málaga</h1>
+        </div>
+      </div>
+      <div class="pills">
+        <span class="pill-amber">Para: Marcelo Velosoz (Rosario's)</span>
+        <span class="pill-green">De: Rodrigo Velázquez</span>
+      </div>
+    </header>
+
+    <!-- KPIs -->
+    <section class="grid-4">
+      <div class="card" style="border-top: 4px solid #f59e0b;">
+        <div class="kpi-label">Mercado Inicial</div>
+        <div class="kpi-value c-amber">83</div>
+        <div class="kpi-sub">Hamburgueserías en Málaga</div>
+      </div>
+      <div class="card" style="border-top: 4px solid #10b981;">
+        <div class="kpi-label">Desarrollo Tech</div>
+        <div class="kpi-value c-green">0 €</div>
+        <div class="kpi-sub">Plataforma ya construida</div>
+      </div>
+      <div class="card" style="border-top: 4px solid #38bdf8;">
+        <div class="kpi-label">Propuesta Alianza</div>
+        <div class="kpi-value c-sky">50 / 50</div>
+        <div class="kpi-sub">O grupo de 3 con producción</div>
+      </div>
+      <div class="card" style="border-top: 4px solid #a855f7;">
+        <div class="kpi-label">Validación</div>
+        <div class="kpi-value c-purple">21 Días</div>
+        <div class="kpi-sub">3 semanas sin riesgo</div>
+      </div>
+    </section>
+
+    <!-- 3 GRÁFICOS VISUALES EN SVG NATIVO (100% VISIBLE SIEMPRE) -->
+    <section class="grid-3">
+      <!-- GRÁFICO 1 -->
+      <div class="card">
+        <div class="eyebrow c-green">1 · Modelo de Negocio</div>
+        <h2 class="card-title">Fuentes de Ingresos Año 1</h2>
+        <div class="chart-box">
+          <svg width="170" height="170" viewBox="0 0 170 170">
+            <circle cx="85" cy="85" r="62" fill="none" stroke="#1e293b" stroke-width="22"/>
+            <!-- Cuotas ~72% -->
+            <circle cx="85" cy="85" r="62" fill="none" stroke="#10b981" stroke-width="22"
+              stroke-dasharray="280 390" stroke-dashoffset="0" transform="rotate(-90 85 85)"/>
+            <!-- Patrocinio ~19% -->
+            <circle cx="85" cy="85" r="62" fill="none" stroke="#f59e0b" stroke-width="22"
+              stroke-dasharray="74 390" stroke-dashoffset="-280" transform="rotate(-90 85 85)"/>
+            <!-- Eventos ~9% -->
+            <circle cx="85" cy="85" r="62" fill="none" stroke="#38bdf8" stroke-width="22"
+              stroke-dasharray="36 390" stroke-dashoffset="-354" transform="rotate(-90 85 85)"/>
+            <text x="85" y="81" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="800">3 Vías</text>
+            <text x="85" y="100" text-anchor="middle" fill="#94a3b8" font-size="11">Año 1</text>
+          </svg>
+          <div class="legend-list">
+            <div class="legend-row"><span class="c-green">● Cuotas Locales Destacados</span><strong>29–49 €/mes</strong></div>
+            <div class="legend-row"><span class="c-amber">● Patrocinio Marca Única</span><strong>Financia campaña</strong></div>
+            <div class="legend-row"><span class="c-sky">● Eventos / Mes de la Burger</span><strong>Picos de caja</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRÁFICO 2 -->
+      <div class="card">
+        <div class="card-header-row">
+          <div>
+            <div class="eyebrow c-amber">2 · Estructura Socios</div>
+            <h2 class="card-title">Reparto de Alianza</h2>
+          </div>
+          <div class="btn-group">
+            <button type="button" id="btn-two" class="btn-mode active" onclick="setPartnerMode('two')">2 Socios</button>
+            <button type="button" id="btn-three" class="btn-mode" onclick="setPartnerMode('three')">3 Socios</button>
+          </div>
+        </div>
+        <div class="chart-box">
+          <svg width="170" height="170" viewBox="0 0 170 170">
+            <circle cx="85" cy="85" r="62" fill="none" stroke="#1e293b" stroke-width="22"/>
+            <circle id="arc-s1" cx="85" cy="85" r="62" fill="none" stroke="#f59e0b" stroke-width="22"
+              stroke-dasharray="195 390" stroke-dashoffset="0" transform="rotate(-90 85 85)"/>
+            <circle id="arc-s2" cx="85" cy="85" r="62" fill="none" stroke="#38bdf8" stroke-width="22"
+              stroke-dasharray="195 390" stroke-dashoffset="-195" transform="rotate(-90 85 85)"/>
+            <circle id="arc-s3" cx="85" cy="85" r="62" fill="none" stroke="#10b981" stroke-width="22"
+              stroke-dasharray="0 390" stroke-dashoffset="-390" transform="rotate(-90 85 85)"/>
+            <text id="donut-partner-label" x="85" y="81" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="800">50 / 50</text>
+            <text id="donut-partner-sub" x="85" y="100" text-anchor="middle" fill="#94a3b8" font-size="11">2 Socios</text>
+          </svg>
+          <div id="partner-legend" class="legend-list">
+            <div class="legend-row"><span class="c-amber">● Marcelo Velosoz (Negocio/Sector)</span><strong>50%</strong></div>
+            <div class="legend-row"><span class="c-sky">● Rodrigo Velázquez (Tech/Mkt)</span><strong>50%</strong></div>
+            <div class="legend-row"><span class="c-green">● Plotters / Vinilos</span><strong>Partner Coste</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRÁFICO 3 -->
+      <div class="card">
+        <div class="eyebrow c-sky">3 · Proyección Comercial</div>
+        <h2 class="card-title">Escalado sobre 83 Locales</h2>
+        <div class="chart-box" style="gap: 12px; padding: 20px 0;">
+          <div style="width:100%;">
+            <div class="control-top"><span>Mes 1 (Piloto)</span><strong class="c-amber">10 locales Pro</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 12%; background:#f59e0b;"></div></div>
+          </div>
+          <div style="width:100%;">
+            <div class="control-top"><span>Mes 3</span><strong class="c-amber">20 locales Pro</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 24%; background:#f59e0b;"></div></div>
+          </div>
+          <div style="width:100%;">
+            <div class="control-top"><span>Mes 6</span><strong class="c-sky">32 locales Pro</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 39%; background:#38bdf8;"></div></div>
+          </div>
+          <div style="width:100%;">
+            <div class="control-top"><span>Mes 12 (Meta Año 1)</span><strong class="c-green">45 locales Pro</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 54%; background:#10b981;"></div></div>
+          </div>
+        </div>
+        <div class="legend-list">
+          <div class="legend-row"><span>Base total ya cargada en Málaga</span><strong>83 hamburgueserías</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROLES -->
+    <section class="grid-3">
+      <div class="card role-card">
+        <div class="card-header-row">
+          <span class="eyebrow c-amber">Visión Empresarial y Sector</span>
+          <span id="badge-s1" class="role-badge">50%</span>
+        </div>
+        <h3 class="card-title">Marcelo Velosoz</h3>
+        <div class="role-bullets">
+          <div>• Dirección estratégica y criterio de negocio</div>
+          <div>• Relación con dueños de hamburgueserías</div>
+          <div>• Negociación con marcas patrocinadoras</div>
+        </div>
+      </div>
+
+      <div class="card role-card sky">
+        <div class="card-header-row">
+          <span class="eyebrow c-sky">Producto, Tech y Marketing</span>
+          <span id="badge-s2" class="role-badge">50%</span>
+        </div>
+        <h3 class="card-title">Rodrigo Velázquez</h3>
+        <div class="role-bullets">
+          <div>• Tecnología y plataforma ya desarrollada</div>
+          <div>• Diseño gráfico, piezas y vídeos de campaña</div>
+          <div>• Gestión digital y analítica de uso</div>
+        </div>
+      </div>
+
+      <div class="card role-card green">
+        <div class="card-header-row">
+          <span class="eyebrow c-green">Producción Física (Opcional)</span>
+          <span id="badge-s3" class="role-badge">Partner</span>
+        </div>
+        <h3 class="card-title">Plotters y Vinilos</h3>
+        <div class="role-bullets">
+          <div>• Contacto directo del circuito Ruta Mahou</div>
+          <div>• Producción exterior a coste preferente</div>
+          <div>• Opción 20% socio si asume impresión inicial</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIMULADOR -->
+    <section class="card">
+      <div class="card-header-row">
+        <div>
+          <div class="eyebrow c-green">Simulador Financiero</div>
+          <h2 class="card-title">Escenarios de Facturación (Base: 83 Locales)</h2>
+        </div>
+        <span class="kpi-sub">Ajusta los controles para simular</span>
+      </div>
+
+      <div class="sim-controls">
+        <div>
+          <div class="control-top">
+            <span class="kpi-sub">Locales adheridos de pago:</span>
+            <strong id="lbl-locales" class="c-amber">25 / 83</strong>
+          </div>
+          <input type="range" id="rng-locales" min="5" max="83" value="25" oninput="updateSim()">
+        </div>
+        <div>
+          <div class="control-top">
+            <span class="kpi-sub">Cuota mensual por local:</span>
+            <strong id="lbl-cuota" class="c-green">39 € / mes</strong>
+          </div>
+          <input type="range" id="rng-cuota" min="19" max="69" step="5" value="39" oninput="updateSim()">
+        </div>
+        <div>
+          <div class="control-top">
+            <span class="kpi-sub">Patrocinio Marca + Eventos:</span>
+            <strong id="lbl-patro" class="c-sky">4.500 € / año</strong>
+          </div>
+          <input type="range" id="rng-patro" min="0" max="15000" step="500" value="4500" oninput="updateSim()">
+        </div>
+      </div>
+
+      <div class="sim-results">
+        <div class="res-box">
+          <span class="kpi-label">Recurrente Mensual</span>
+          <span id="res-mensual" class="res-val c-green">975 €/mes</span>
+        </div>
+        <div class="res-box highlight">
+          <span class="kpi-label">Facturación Año 1</span>
+          <span id="res-anual" class="res-val c-amber">16.200 €/año</span>
+        </div>
+        <div class="res-box">
+          <span class="kpi-label">Cuota sobre 83 Locales</span>
+          <span id="res-pct" class="res-val c-sky">30%</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 SEMANAS -->
+    <section class="grid-3">
+      <div class="card step-card">
+        <span class="eyebrow c-amber">Semana 1 · Acuerdo</span>
+        <h3>Revisión y Pacto de Socios</h3>
+        <p>15 min para revisar juntos y cerrar porcentajes (2 o 3 socios).</p>
+      </div>
+      <div class="card step-card sky">
+        <span class="eyebrow c-sky">Semana 2 · 0€ Gasto</span>
+        <h3>Validación Patrocinador</h3>
+        <p>Presentar propuesta a 1 marca patrocinadora y testar con 5–10 locales.</p>
+      </div>
+      <div class="card step-card green">
+        <span class="eyebrow c-green">Semana 3 · Despliegue</span>
+        <h3>Producción y Lanzamiento</h3>
+        <p>Activar campaña exterior y lanzamiento comercial en Málaga.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <div class="eyebrow c-amber">Marcelo Velosoz & Rodrigo Velázquez</div>
+        <div style="font-size:14px; font-weight:600; color:#ffffff; margin-top:2px;">
+          ¿Lo vemos 15 minutos esta semana y me dices si entramos como socios?
+        </div>
+      </div>
+      <button type="button" class="btn-print" onclick="window.print()">Guardar PDF / Imprimir</button>
+    </footer>
+  </div>
+
+  <script>
+    function setPartnerMode(mode) {
+      var btnTwo = document.getElementById('btn-two');
+      var btnThree = document.getElementById('btn-three');
+      var legend = document.getElementById('partner-legend');
+      var b1 = document.getElementById('badge-s1');
+      var b2 = document.getElementById('badge-s2');
+      var b3 = document.getElementById('badge-s3');
+      var arc1 = document.getElementById('arc-s1');
+      var arc2 = document.getElementById('arc-s2');
+      var arc3 = document.getElementById('arc-s3');
+      var lbl = document.getElementById('donut-partner-label');
+      var sub = document.getElementById('donut-partner-sub');
+
+      if (mode === 'two') {
+        btnTwo.classList.add('active');
+        btnThree.classList.remove('active');
+        arc1.setAttribute('stroke-dasharray', '195 390');
+        arc1.setAttribute('stroke-dashoffset', '0');
+        arc2.setAttribute('stroke-dasharray', '195 390');
+        arc2.setAttribute('stroke-dashoffset', '-195');
+        arc3.setAttribute('stroke-dasharray', '0 390');
+        arc3.setAttribute('stroke-dashoffset', '-390');
+        lbl.textContent = '50 / 50';
+        sub.textContent = '2 Socios';
+        b1.textContent = '50%';
+        b2.textContent = '50%';
+        b3.textContent = 'Partner';
+        legend.innerHTML =
+          '<div class="legend-row"><span class="c-amber">● Marcelo Velosoz (Negocio/Sector)</span><strong>50%</strong></div>' +
+          '<div class="legend-row"><span class="c-sky">● Rodrigo Velázquez (Tech/Mkt)</span><strong>50%</strong></div>' +
+          '<div class="legend-row"><span class="c-green">● Plotters / Vinilos</span><strong>Partner Coste</strong></div>';
+      } else {
+        btnThree.classList.add('active');
+        btnTwo.classList.remove('active');
+        arc1.setAttribute('stroke-dasharray', '156 390');
+        arc1.setAttribute('stroke-dashoffset', '0');
+        arc2.setAttribute('stroke-dasharray', '156 390');
+        arc2.setAttribute('stroke-dashoffset', '-156');
+        arc3.setAttribute('stroke-dasharray', '78 390');
+        arc3.setAttribute('stroke-dashoffset', '-312');
+        lbl.textContent = '40/40/20';
+        sub.textContent = '3 Socios';
+        b1.textContent = '40%';
+        b2.textContent = '40%';
+        b3.textContent = '20%';
+        legend.innerHTML =
+          '<div class="legend-row"><span class="c-amber">● Marcelo Velosoz (Negocio/Sector)</span><strong>40%</strong></div>' +
+          '<div class="legend-row"><span class="c-sky">● Rodrigo Velázquez (Tech/Mkt)</span><strong>40%</strong></div>' +
+          '<div class="legend-row"><span class="c-green">● Socio Plotters (Producción)</span><strong class="c-green">20%</strong></div>';
+      }
+    }
+
+    function updateSim() {
+      var locales = parseInt(document.getElementById('rng-locales').value, 10);
+      var cuota = parseInt(document.getElementById('rng-cuota').value, 10);
+      var patro = parseInt(document.getElementById('rng-patro').value, 10);
+
+      document.getElementById('lbl-locales').textContent = locales + ' / 83';
+      document.getElementById('lbl-cuota').textContent = cuota + ' € / mes';
+      document.getElementById('lbl-patro').textContent = patro.toLocaleString('es-ES') + ' € / año';
+
+      var mensual = locales * cuota;
+      var anual = mensual * 12 + patro;
+      var pct = Math.round((locales / 83) * 100);
+
+      document.getElementById('res-mensual').textContent = mensual.toLocaleString('es-ES') + ' €/mes';
+      document.getElementById('res-anual').textContent = anual.toLocaleString('es-ES') + ' €/año';
+      document.getElementById('res-pct').textContent = pct + '%';
+    }
+  </script>
+</body>
+</html>
